@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^orders$', my_order.index, name='home'),
     url(r'^order/(?P<order_id>\d+)/$', my_order.show, name='show'),
     url(r'^order/new/$', my_order.new, name='new'),
+    #url(r'^order/conformation/$', my_order.conformation, name='conformation'),
     url(r'^order/edit/(?P<order_id>\d+)/$', my_order.edit, name='edit'),
     url(r'^order/delete/(?P<order_id>\d+)/$', my_order.destroy, name='delete'),
     url(r'^users/login/$', auth.login, {'template_name': 'login.html'}, name='login'),

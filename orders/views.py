@@ -1,17 +1,22 @@
 from django.shortcuts import render, redirect
-from .models import Order
+from .models import Salesorder
 from .forms import OrderForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 @login_required
 def index(request):
-    orders = Order.objects.all()
+    orders = Salesorder.objects.all()
     return render(request, 'index.html', {'orders': orders})
 
 @login_required
+def index(request):
+    orders = Salesorder.objects.all()
+    return render(request, 'conformation.html', {'orders': orders})
+
+@login_required
 def show(request, order_id):
-    order = Order.objects.filter(id=order_id)
+    order = Salesorder.objects.filter(id=order_id)
     return render(request, 'show.html', {'order': order})
 
 @login_required
@@ -31,7 +36,7 @@ def new(request):
 
 @login_required
 def edit(request, order_id):
-    order = Order.objects.get(id=order_id)
+    order = Salesorder.objects.get(id=order_id)
     if request.POST:
         form = OrderForm(request.POST, instance=order)
         if form.is_valid():
@@ -47,6 +52,6 @@ def edit(request, order_id):
 
 @login_required
 def destroy(request, order_id):
-    order = Order.objects.get(id=order_id)
+    order = Salesorder.objects.get(id=order_id)
     order.delete()
     return redirect('/', messages.success(request, 'Order was successfully deleted.', 'alert-success'))

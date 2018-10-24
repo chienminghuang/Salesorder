@@ -21,27 +21,28 @@
                                             <table id="datatable2" class="table order-column hover">
                                                 <thead>
                                                     <tr>
+                                                        <th>Id</th>
+                                                        <th>Memberaccount</th>
                                                         <th>Name</th>
-                                                        <th>Phone</th>
-                                                        <th>Address</th>
-                                                        <th>Delivery Date</th>
-                                                        <th>Product</th>
-                                                        <th>Payment Option</th>
-                                                        <th>Amount</th>
-                                                        <th>Status</th>
-                                                        <th width="150px">Buttons</th>
+                                                        <th>Ordertime</th>
+                                                        <th>Order Status</th>
+                                                        <th>Payment Status</th>
+                                                        <th>PtoductId</th>
+                                                        <th>Photo</th>
+                                                        <th width="100px">Buttons</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     {% for order in orders %}
                                                         <tr class="gradeX">
+                                                            <td>{{ order.id }}</td>
+                                                            <td>{{ order.memberaccount }}</td>
                                                             <td>{{ order.name }}</td>
-                                                            <td>{{ order.phone }}</td>
-                                                            <td>{{ order.address }}</td>
-                                                            <td>{{ order.delivery_date }}</td>
-                                                            <td>{{ order.product_id }}</td>
-                                                            <td>{{ order.payment_option }}</td>
-                                                            <td>{{ order.amount }}</td>
+                                                            <td>{{ order.ordertime }}</td>
+                                                            <td>{{ order.orderstatus }}</td>
+                                                            <td>{{ order.paymentstatus }}</td>
+                                                            <td>{{ order.productid }}</td>
+                                                            <td>{{ order.photo1 }}</td>
                                                             <td><span class="badge" style="background: #0aa89e"> {{ order.order_status }}</span></td>
                                                             <td>
                                                                 <a href="{% url 'edit' order.id %}" class="btn ink-reaction btn-floating-action btn-warning"><i class="md md-edit"></i> </a>

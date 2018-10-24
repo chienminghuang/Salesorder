@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import 產品列表
+from .models import Product
 # Register your models here.
 
 
@@ -13,9 +13,9 @@ from .models import 產品列表
 
 
 
-class  產品列表Admin(admin.ModelAdmin):
-    list_display = ['id', '名稱','圖片','價格', '已上架', '建立時間', '修改時間']
-    list_editable = ['名稱','價格', '已上架' ]
+class  ProductAdmin(admin.ModelAdmin):
+    list_display = [ 'detailid','name','photo', 'price', 'material']
+    list_editable = ['name','price','material'  ]
     list_per_page = 10
 
-admin.site.register(產品列表,產品列表Admin)
+admin.site.register(Product,ProductAdmin)

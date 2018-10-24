@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from .models import Order
+from .models import Salesorder
 
 class OrderForm(ModelForm):
     OPTIONS = (
@@ -21,5 +21,5 @@ class OrderForm(ModelForm):
     payment_option = forms.ChoiceField(choices=OPTIONS)
 
     class Meta:
-        model = Order
-        fields = ['name','phone','address','delivery_date','product_id','payment_option','amount','order_status']
+        model = Salesorder
+        fields = ['id','memberaccount','name','ordertime','orderstatus','paymentstatus','productid','photo1','photo2','photo3']
