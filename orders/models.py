@@ -61,13 +61,14 @@ from django.db import models
 
 class Curtain(models.Model):
     id = models.CharField(db_column='Id', primary_key=True, max_length=20)  # Field name made lowercase.
-    description = models.CharField(db_column='Description', max_length=225)  # Field name made lowercase.
-    category = models.BigIntegerField(db_column='Category')  # Field name made lowercase.
+    description = models.CharField(max_length=100)  # Field name made lowercase.
+    category = models.CharField(max_length=100, unique=True)  # Field name made lowercase.
     model = models.CharField(db_column='Model', max_length=45)  # Field name made lowercase.
-    material1 = models.CharField(db_column='Material1', max_length=45)  # Field name made lowercase.
+    #price = models.DecimalField(max_digits=10, decimal_places=4)
+    material1 = models.ImageField(upload_to='category', blank=True)  # Field name made lowercase.
     material2 = models.CharField(db_column='Material2', max_length=45)  # Field name made lowercase.
     material3 = models.CharField(db_column='Material3', max_length=45)  # Field name made lowercase.
-    recommend = models.IntegerField(db_column='Recommend')  # Field name made lowercase.
+    #recommend = models.BooleanField(default=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -81,6 +82,23 @@ class Curtaincategory(models.Model):
     class Meta:
         managed = False
         db_table = 'CurtainCategory'
+
+class Sofa(models.Model):
+    id = models.CharField(db_column='Id', primary_key=True, max_length=20)  # Field name made lowercase.
+    description = models.CharField(max_length=100)  # Field name made lowercase.
+    Width = models.IntegerField(default=0)
+    Height = models.IntegerField(default=0)
+    model = models.CharField(db_column='Model', max_length=45)  # Field name made lowercase.
+    #price = models.DecimalField(max_digits=10, decimal_places=4)
+    material1 = models.ImageField(upload_to='category', blank=True)  # Field name made lowercase.
+    material2 = models.CharField(db_column='Material2', max_length=45)  # Field name made lowercase.
+    material3 = models.CharField(db_column='Material3', max_length=45)  # Field name made lowercase.
+    #recommend = models.BooleanField(default=True)  # Field name made lowercase.
+
+    class Meta:
+        managed = False
+        db_table = 'Sofa'
+
 
 
 class Employee(models.Model):
@@ -132,10 +150,10 @@ class Product(models.Model):
     id = models.BigAutoField(db_column='Id', primary_key=True)  # Field name made lowercase.
     detailid = models.CharField(db_column='DetailId', max_length=20)  # Field name made lowercase.
     name = models.CharField(db_column='Name', max_length=45)  # Field name made lowercase.
-    photo = models.CharField(db_column='Photo', max_length=45)  # Field name made lowercase.
+    photo = models.ImageField(upload_to='category', blank=True)  # Field name made lowercase.
     price = models.BigIntegerField(db_column='Price')  # Field name made lowercase.
     material = models.CharField(db_column='Material', max_length=45)  # Field name made lowercase.
-
+    recommend = models.BooleanField(default=True)  # Field name made lowercase.
     class Meta:
         managed = False
         db_table = 'Product'
@@ -146,10 +164,13 @@ class Salesorder(models.Model):
     memberaccount = models.CharField(db_column='MemberAccount', max_length=45)  # Field name made lowercase.
     name = models.CharField(db_column='Name', max_length=45)  # Field name made lowercase.
     ordertime = models.DateField(db_column='OrderTime')  # Field name made lowercase.
-    orderstatus = models.BigIntegerField(db_column='OrderStatus')  # Field name made lowercase.
-    paymentstatus = models.IntegerField(db_column='PaymentStatus')  # Field name made lowercase.
+    orderstatus = models.BooleanField(default=True)  # Field name made lowercase.
+    paymentstatus = models.BooleanField(default=True)  # Field name made lowercase..
     productid = models.BigIntegerField(db_column='ProductId')  # Field name made lowercase.
-    photo1 = models.CharField(db_column='Photo1', max_length=45)  # Field name made lowercase.
+    Width = models.IntegerField(default=0)
+    Height = models.IntegerField(default=0)
+    Estimate = models.IntegerField(default=0)
+    photo1 = models.ImageField(upload_to='category', blank=True)  # Field name made lowercase.
     photo2 = models.CharField(db_column='Photo2', max_length=45)  # Field name made lowercase.
     photo3 = models.CharField(db_column='Photo3', max_length=45)  # Field name made lowercase.
 

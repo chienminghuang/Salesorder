@@ -112,6 +112,7 @@ class Migration(migrations.Migration):
                 ('photo', models.CharField(db_column='Photo', max_length=45)),
                 ('price', models.BigIntegerField(db_column='Price')),
                 ('material', models.CharField(db_column='Material', max_length=45)),
+
             ],
             options={
                 'db_table': 'Product',
@@ -126,7 +127,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(db_column='Name', max_length=45)),
                 ('ordertime', models.DateField(db_column='OrderTime')),
                 ('orderstatus', models.BigIntegerField(db_column='OrderStatus')),
-                ('paymentstatus', models.IntegerField(db_column='PaymentStatus')),
+                ('paymentstatus', models.BooleanField(db_column='PaymentStatus')),
                 ('productid', models.BigIntegerField(db_column='ProductId')),
                 ('photo1', models.CharField(db_column='Photo1', max_length=45)),
                 ('photo2', models.CharField(db_column='Photo2', max_length=45)),

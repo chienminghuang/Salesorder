@@ -23,3 +23,4 @@ class OrderForm(ModelForm):
     class Meta:
         model = Salesorder
         fields = ['id','memberaccount','name','ordertime','orderstatus','paymentstatus','productid','photo1','photo2','photo3']
+

@@ -9,10 +9,10 @@ def index(request):
     orders = Salesorder.objects.all()
     return render(request, 'index.html', {'orders': orders})
 
-@login_required
-def index(request):
-    orders = Salesorder.objects.all()
-    return render(request, 'conformation.html', {'orders': orders})
+#@login_required
+#def index(request):
+#    orders = Salesorder.objects.all()
+#   return render(request, 'conformation.html', {'orders': orders})
 
 @login_required
 def show(request, order_id):
@@ -55,3 +55,4 @@ def destroy(request, order_id):
     order = Salesorder.objects.get(id=order_id)
     order.delete()
     return redirect('/', messages.success(request, 'Order was successfully deleted.', 'alert-success'))
+
