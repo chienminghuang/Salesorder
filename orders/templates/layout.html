@@ -58,14 +58,14 @@
 						<li class="dropdown">
 							<a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
 								<span class="profile-info">
-									<h4 class="text-lg text-bold text-primary"> Application</h4>
+									<h4 class="text-lg text-bold text-primary"> 設定</h4>
 								</span>
 							</a>
 							<ul class="dropdown-menu animation-dock">
-								<li class="dropdown-header">My profile</li>
-								<li><a href="{% url 'change_password' %}">Change Password</a></li>
+								<li class="dropdown-header">個人資料</li>
+								<li><a href="{% url 'change_password' %}">更換密碼</a></li>
 								<li class="divider"></li>
-								<li><a href="{% url 'logout' %}"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
+								<li><a href="{% url 'logout' %}"><i class="fa fa-fw fa-power-off text-danger"></i> 登出</a></li>
 							</ul><!--end .dropdown-menu -->
 						</li><!--end .dropdown -->
 					</ul><!--end .header-nav-profile -->
@@ -124,7 +124,7 @@
 						<li>
 							<a href="{% url 'home' %}" class="active">
 								<div class="gui-icon"><i class="md md-home"></i></div>
-								<span class="title">Dashboard</span>
+								<span class="title">主頁</span>
 							</a>
 						</li><!--end /menu-li -->
 						<!-- END DASHBOARD -->
@@ -133,13 +133,13 @@
 						<li class="gui-folder">
 							<a>
 								<div class="gui-icon"><i class="fa fa-shopping-cart"></i></div>
-								<span class="title">Order</span>
+								<span class="title">功能選單</span>
 							</a>
 							<!--start submenu -->
 							<ul>
                         <!--        <li><a href="{% url 'new' %}" ><span class="title">Add Order</span></a></li>    -->
-								<li><a href="{% url 'home'%}" ><span class="title">All Orders</span></a></li>
-                                <li><a href="{% url "admin:index"%}" ><span class="title">Product & Salesorder</span></a></li>
+								<li><a href="{% url 'home'%}" ><span class="title">所有訂單</span></a></li>
+                                <li><a href="{% url "admin:index"%}" ><span class="title">商品、訂單管理系統</span></a></li>
 
                             </ul><!--end /submenu -->
 						</li><!--end /menu-li -->
@@ -149,12 +149,12 @@
 						<li class="gui-folder">
 							<a>
 								<div class="gui-icon"><i class="fa fa-user"></i></div>
-								<span class="title">Profile</span>
+								<span class="title">個人資料</span>
 							</a>
 							<!--start submenu -->
 							<ul>
-								<li><a href="{% url 'change_password' %}" ><span class="title">Change Password</span></a></li>
-								<li><a href="{% url 'logout' %}" ><span class="title">Logout</span></a></li>
+								<li><a href="{% url 'change_password' %}" ><span class="title">更換密碼</span></a></li>
+								<li><a href="{% url 'logout' %}" ><span class="title">登出</span></a></li>
 							</ul><!--end /submenu -->
 						</li><!--end /menu-li -->
 						<!-- END PROFILE -->

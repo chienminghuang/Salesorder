@@ -62,8 +62,8 @@ from django.db import models
 class Curtain(models.Model):
     id = models.CharField(db_column='Id', primary_key=True, max_length=20)  # Field name made lowercase.
     description = models.CharField(max_length=100)  # Field name made lowercase.
-    category = models.CharField(max_length=100, unique=True)  # Field name made lowercase.
-    model = models.CharField(db_column='Model', max_length=45)  # Field name made lowercase.
+    #category = models.CharField(max_length=100, unique=True)  # Field name made lowercase.
+    model = models.FileField(upload_to='category', blank=True)
     #price = models.DecimalField(max_digits=10, decimal_places=4)
     material1 = models.ImageField(upload_to='category', blank=True)  # Field name made lowercase.
     material2 = models.CharField(db_column='Material2', max_length=45)  # Field name made lowercase.
@@ -88,7 +88,7 @@ class Sofa(models.Model):
     description = models.CharField(max_length=100)  # Field name made lowercase.
     Width = models.IntegerField(default=0)
     Height = models.IntegerField(default=0)
-    model = models.CharField(db_column='Model', max_length=45)  # Field name made lowercase.
+    model = models.FileField(upload_to='category', blank=True)   # Field name made lowercase.
     #price = models.DecimalField(max_digits=10, decimal_places=4)
     material1 = models.ImageField(upload_to='category', blank=True)  # Field name made lowercase.
     material2 = models.CharField(db_column='Material2', max_length=45)  # Field name made lowercase.
@@ -169,7 +169,7 @@ class Salesorder(models.Model):
     productid = models.BigIntegerField(db_column='ProductId')  # Field name made lowercase.
     Width = models.IntegerField(default=0)
     Height = models.IntegerField(default=0)
-    Estimate = models.IntegerField(default=0)
+    Estimate = models.DecimalField(max_digits=10, decimal_places=0)
     photo1 = models.ImageField(upload_to='category', blank=True)  # Field name made lowercase.
     photo2 = models.CharField(db_column='Photo2', max_length=45)  # Field name made lowercase.
     photo3 = models.CharField(db_column='Photo3', max_length=45)  # Field name made lowercase.

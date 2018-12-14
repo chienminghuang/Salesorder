@@ -10,7 +10,7 @@
                 <section>
                     <div class="section-header">
 						<ol class="breadcrumb">
-							<li class="active">Invoice</li>
+							<li class="active"></li>
 						</ol>
 					</div>
 					<div class="section-body">
@@ -32,11 +32,11 @@
 												<img src="{% static 'img/django_logo.png' %}" class="invoice_logo" width="100%">
 											</div>-->
 											<div class="col-xs-8">
-												<h1 class="text-light" style="margin-top: 0px; color: #f70b0b">iDecorator</h1>
+												<h1 class="text-light" style="margin-top: 0px; color: #f70b0b">iDecorator 家飾輕鬆選</h1>
 												<p>新北市新莊區中正路510號</p>
 											</div>
 											<div class="col-xs-4 text-right">
-												<h1 class="text-light text-default-light">Invoice</h1>
+												<h1 class="text-light text-default-light">訂單詳細資料</h1>
 											</div>
 										</div><!--end .row -->
 										<!-- END INVOICE HEADER -->
@@ -46,26 +46,25 @@
 										<!-- BEGIN INVOICE DESCRIPTION -->
 										<div class="row">
 											<div class="col-xs-8">
-												<h4 class="text-light">Prepared for</h4>
+												<h4 class="text-light"></h4>
 												<address>
 													<strong>{{ order.name }}</strong><br>
 													{{ order.address }}
-													<b>Phone:</b> {{ order.phone }}
 												</address>
 											</div><!--end .col -->
 											<div class="col-xs-4">
 												<div class="well">
 													<div class="clearfix">
-														<div class="pull-left"> INVOICE NO : </div>
+														<div class="pull-left"> 訂單編號 : </div>
 														<div class="pull-right"> {{ order.id }} </div>
 													</div>
 													<div class="clearfix">
-														<div class="pull-left"> INVOICE DATE : </div>
-														<div class="pull-right">  </div>
+														<div class="pull-left"> 顧客姓名 : </div>
+														<div class="pull-right"> {{ order.memberaccount }} </div>
 													</div>
 													<div class="clearfix">
-														<div class="pull-left"> DELEVERY DATE : </div>
-														<div class="pull-right"> {{ order.delivery_date }} </div>
+														<div class="pull-left"> 產品ID : </div>
+														<div class="pull-right"> {{ order.productid }} </div>
 													</div>
 												</div>
 											</div><!--end .col -->
@@ -80,36 +79,42 @@
 												<table class="table">
 													<thead>
 														<tr>
-															<th style="width:60px" class="text-center">ID</th>
-															<th class="text-left">DESCRIPTION</th>
-															<th style="width:140px" class="text-right"></th>
-															<th style="width:90px" class="text-right">TOTAL</th>
+															<th style="width:20%">訂單編號</th>
+															<th style="width:20%">商品長度</th>
+                                                            <!--<th class="text-medium">商品寬度</th>-->
+                                                            <th style="width:20%">商品寬度</th>
+                                                        <!--    <th style="width:20%">計算公式</th>-->
+
+
+                                                            <th style="width:90px" class="text-right">TOTAL</th>
 														</tr>
 													</thead>
 													<tbody>
 														<tr>
-															<td class="text-center">1</td>
-															<td>{{ order.product_id }}</td>
-															<td class="text-right"></td>
-															<td class="text-right">NTD {{ order.amount }}</td>
+															<td>{{ order.id }}</td>
+															<td>{{ order.Height }}</td>
+                                                            <td>{{ order.Width }}</td>
+                                                        <!--    <td>長度*2.2*寬度*單價=售價 </td>-->
+                                                           <!-- <td class="text-right">{{ order.Width }}</td>-->
+															<td class="text-right"> {{ order.Estimate }}</td>
 														</tr>
 														<tr>
 															<td colspan="2" rowspan="4">
-																<h3 class="text-light opacity-50">Invoice notes</h3>
-																<p><small>因物品大小設有不同運費，購物滿額 NTD 6,000 以上台灣本島免運費</small></p>
-																<p><small>出貨時間：平日 12:00 確認貨款後當日出貨，超過 12:00 之匯款隔日出貨。國定假日休息。</small></p>
-                                                                <p><strong><em>Recvied By __________________</em></strong></p>
+																<h3 class="text-light opacity-50">備註</h3>
+															<!--	<p><small>因物品大小設有不同運費，購物滿額 NTD 6,000 以上台灣本島免運費</small></p>-->
+																<p><small>出貨時間：平日 12:00 確認貨款後當日出貨，超過 12:00 之匯款隔日出貨 ^_^</small></p>
+                                                                <!--<p><strong><em>Recvied By __________________</em></strong></p>-->
 															</td>
-															<td class="text-right"><strong>Subtotal</strong></td>
-															<td class="text-right">NTD {{ order.amount }}</td>
+															<td class="text-right"><strong>小計</strong></td>
+															<td class="text-right"> {{ order.Estimate }}</td>
 														</tr>
 														<tr>
 															<td class="text-right hidden-border"><strong>TEX</strong></td>
 															<td class="text-right hidden-border">$0.00</td>
 														</tr>
 														<tr>
-															<td class="text-right"><strong class="text-lg text-accent">Total</strong></td>
-															<td class="text-right"><strong class="text-lg text-accent">NTD {{ order.amount }}</strong></td>
+															<td class="text-right"><strong class="text-lg text-accent">總計</strong></td>
+															<td class="text-right"><strong class="text-lg text-accent"> {{ order.Estimate }}</strong></td>
 														</tr>
 													</tbody>
 												</table>

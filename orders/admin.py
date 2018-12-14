@@ -24,8 +24,8 @@ class  ProductAdmin(admin.ModelAdmin):
 admin.site.register(Product,ProductAdmin)
 
 class   CurtainAdmin(admin.ModelAdmin):
-    list_display = ['id','description','category','model']
-    list_editable = ['description','category','model']
+    list_display = ['id','description','model']
+    list_editable = ['description','model']
 admin.site.register(Curtain,CurtainAdmin)
 
 class   SofaAdmin(admin.ModelAdmin):
@@ -35,8 +35,8 @@ admin.site.register(Sofa,SofaAdmin)
 
 @admin.register(Salesorder)
 class   SalesorderAdmin(ImportExportModelAdmin):
-    list_display = ['id','memberaccount','Estimate','Width','Height','orderstatus','paymentstatus']
-    list_editable = ['paymentstatus']
+    list_display = ['id','memberaccount','Estimate','Width','Height','orderstatus']
+    list_editable = ['orderstatus']
 #admin.site.register(Salesorder,SalesorderAdmin)
 
 #class   SalesorderResource(resources.ModelResource):
